@@ -1,0 +1,13 @@
+﻿@model FilmStation.Domain.Entities.Film
+
+<a href="@Url.Action("Detail", "Film", new { id = Model.Id})" class="list-group-item clearfix">
+    <div class="searchimgsummary">
+        <img class="img-responsive" src="~/image/@Model.ImageName" />
+    </div>
+    <h4 style="font-weight: 700;">@Model.Name</h4>
+    <p>@{if (Model.OtherName != "null")
+        { @Model.OtherName}
+    } </p>
+    <p>语言：@Model.Language</p>
+    <p>类型：@Model.Style</p>
+</a>

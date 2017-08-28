@@ -1,0 +1,40 @@
+﻿@model FilmStation.WebUI.Models.ClassifyFilmViewModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>List</h2>
+
+@using (Html.BeginForm("List", "Admin"))
+{
+    Html.RenderAction("FilterForm", "Admin");
+    <input type="submit" value="查询"/>
+}
+
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Language</td>
+            <td>Area</td>
+            <td>Year</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model.Films)
+        {
+            <tr>
+                <td>@f.Name</td>
+                <td>@f.Language</td>
+                <td>@f.Location</td>
+                <td>@f.PublishTime</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row" style="text-align: center">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Admin", new { page = x, category = Model.CurrentCategory }))
+</div>

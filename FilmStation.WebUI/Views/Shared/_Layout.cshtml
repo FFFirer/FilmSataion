@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/jQuery/jquery-3.1.1.js" type="text/javascript"></script>
+    <script src="~/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-fixed-top navbar-inverse navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        @Html.ActionLink("Films", "List", "Film", new { area = "" }, new { @class = "navbar-brand" })
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-example">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbar-collapse-example">
+                        <ul class="nav navbar-nav">
+                            @{ Html.RenderAction("Menu", "Nav");}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>    
+        <!-- body padding-top 随nav的高度改变 -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("body").css("padding-top", $("nav").height() + 20 + "px");
+            })
+            $(window).resize(function () {
+                $("body").css("padding-top", $("nav").height() + 20 + "px");
+            });
+        </script>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="@Url.RouteUrl("search1", new { controller = "Film", action = "Search"})" name="Search" method="post" class="form-inline" role="form">
+                    <div class="input-group col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+                        <input name="keyvalue" type="text" class="form-control" placeholder="输入要搜索的电影名字" />
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">搜索</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr />
+        @RenderBody()
+        <hr />
+        <script src="~/Scripts/customed/HidPager.js" type="text/javascript"></script>
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Film Station</p>
+        </footer>
+    </div>
+</body>
+</html>

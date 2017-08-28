@@ -1,0 +1,29 @@
+﻿@model FilmStation.WebUI.Models.SearchResultViewModel
+
+@{
+    ViewBag.Title = "Search";
+    int itemsSum = Model.PagingInfo.ItemsPerPage * (Model.PagingInfo.CurrentPage - 1) + Model.Films.Count();
+}
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span>搜索关键字：@Model.KeyValue</span><span class="pull-right">记录：@itemsSum / @Model.PagingInfo.TotalItems&nbsp;条</span>
+            </div>
+            <div class="list-group">
+                @foreach (var res in Model.Films)
+                {
+                    Html.RenderPartial("SearchSummary", res);
+                }
+            </div>
+            <div class="panel-footer" style="text-align: center">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("SearchResult", new { page = x }))
+            </div>
+        </div>
+    </div>
+
+</div>
+@*<div class="row" style="text-align: center">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("SearchResult", new { page = x }))
+</div>*@

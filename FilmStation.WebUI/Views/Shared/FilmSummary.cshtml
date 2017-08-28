@@ -1,0 +1,12 @@
+﻿@model FilmStation.Domain.Entities.Film
+
+<div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 filmsummary">
+    <a href="@Url.Action("Detail", "Film", new { id = Model.Id})" >
+        <div class="img-responsive imgsummary">
+            <img class="img-responsive center-block" src="~/image/@Model.ImageName" />
+        </div>
+        <div class="imgdesc">
+            <h5>@Model.Name.Split()[0]</h5>
+        </div>
+    </a>
+</div>

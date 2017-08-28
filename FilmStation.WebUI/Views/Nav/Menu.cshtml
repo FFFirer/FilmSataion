@@ -1,0 +1,13 @@
+﻿@model IEnumerable<FilmStation.Domain.Entities.Category>
+
+@foreach (var cate in Model)
+{
+    if (ViewBag.SelectCategory == cate.EnCateName)
+    {
+        <li class="active">@Html.RouteLink(cate.ChCateName, new { controller = "Film", action = "List", category = cate.EnCateName, page = 1 })</li>
+    }
+    else
+    {
+        <li>@Html.RouteLink(cate.ChCateName, new {controller = "Film", action = "List", category = cate.EnCateName, page = 1 })</li>
+    }
+}

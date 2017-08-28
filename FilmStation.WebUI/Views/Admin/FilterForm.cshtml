@@ -1,0 +1,24 @@
+﻿@model FilmStation.WebUI.Models.ClassifyNav
+
+<select name="category">
+    @foreach (var cate in Model.Category)
+    {
+        <option value=@cate.EnCateName>@cate.ChCateName</option>
+    }
+</select>
+
+<select name="language">
+    <option value="0">Default</option>
+</select>
+
+<select name="area">
+    <option value="0">Default</option>
+</select>
+
+<select name="year">
+    <option value="0">Default</option>
+</select>
+
+<select name="rate">
+    <option value="0">Default</option>
+</select>

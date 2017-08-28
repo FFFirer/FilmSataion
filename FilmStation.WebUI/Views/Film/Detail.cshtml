@@ -1,0 +1,74 @@
+﻿@model FilmStation.Domain.Entities.Film
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <div class="page-header">
+                    <h1>
+                        @Model.Name.Split()[0]
+                        <small>@{if (Model.OtherName != "null") { @Model.OtherName}
+                        }</small>
+                    </h1>
+                </div>
+                <div class="searchimgsummary">
+                    <img class="img-responsive" src="~/image/@Model.ImageName" />
+                </div>
+            </div>
+            <table class="table table-hover">
+                <tr>
+                    <td>名字</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td>导演</td>
+                    <td>@Model.Direct</td>
+                </tr>
+                <tr>
+                    <td>编剧</td>
+                    <td>@Model.ScreenWriter</td>
+                </tr>
+                <tr>
+                    <td>主演</td>
+                    <td>@Model.MainPerformer</td>
+                </tr>
+                <tr>
+                    <td>类型</td>
+                    <td>@Model.Style</td>
+                </tr>
+                <tr>
+                    <td>官方网站</td>
+                    <td>@Model.OfficalWebSite</td>
+                </tr>
+                <tr>
+                    <td>制片国家 / 地区</td>
+                    <td>@Model.Location</td>
+                </tr>
+                <tr>
+                    <td>语言</td>
+                    <td>@Model.Language</td>
+                </tr>
+                <tr>
+                    <td>上映日期</td>
+                    <td>@Model.PublishTime</td>
+                </tr>
+                <tr>
+                    <td>片长</td>
+                    <td>@Model.TimeLength</td>
+                </tr>
+                <tr>
+                    <td>又名</td>
+                    <td>@Model.OtherName</td>
+                </tr>
+                <tr>
+                    <td>IMDb</td>
+                    <td>@Model.IMDblink</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

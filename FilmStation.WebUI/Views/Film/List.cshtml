@@ -1,0 +1,15 @@
+﻿@model FilmStation.WebUI.Models.FilmViewModel
+
+@{
+    ViewBag.Title = "电影";
+}
+
+<div class="row">
+    @foreach (var item in Model.Films)
+    {
+        Html.RenderPartial("FilmSummary", item);
+    }
+</div>
+<div class="row" style="text-align: center">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>

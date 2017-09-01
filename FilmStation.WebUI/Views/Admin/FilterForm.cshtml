@@ -1,24 +1,44 @@
 ﻿@model FilmStation.WebUI.Models.ClassifyNav
 
-<select name="category">
+关键字：
+<input type="text" id="name" name="name" placeholder="输入电影名字关键字" />
+类别：
+<select id="category" name="category">
+    <option></option>
     @foreach (var cate in Model.Category)
     {
         <option value=@cate.EnCateName>@cate.ChCateName</option>
     }
 </select>
 
-<select name="language">
-    <option value="0">Default</option>
+语言：
+<select id="language" name="language">
+    <option></option>
+    @foreach (var lang in Model.Language)
+    {
+        <option value=@lang>@lang</option>
+    }
 </select>
 
-<select name="area">
-    <option value="0">Default</option>
+地区：
+<select id="area" name="area">
+    <option></option>
+    @foreach (var item in Model.Area)
+    {
+        <option value=@item>@item</option>
+    }
 </select>
 
-<select name="year">
-    <option value="0">Default</option>
+年份：
+<select id="year" name="year">
+    <option></option>
+    @foreach (var item in Model.Year)
+    {
+        <option value=@item>@item</option>
+    }
 </select>
 
-<select name="rate">
-    <option value="0">Default</option>
+评分：
+<select id="rate" name="rate">
+    <option></option>
 </select>

@@ -7,10 +7,10 @@
 
 <h2>List</h2>
 
-@using (Html.BeginForm("List", "Admin"))
+@using (Html.BeginForm("List", "Admin",FormMethod.Post, new { @id = "adminlist"}))
 {
     Html.RenderAction("FilterForm", "Admin");
-    <input type="submit" value="查询"/>
+    <input id="submit" type="submit" value="查询"/>
 }
 
 <table>
@@ -26,7 +26,7 @@
         @foreach (var f in Model.Films)
         {
             <tr>
-                <td>@f.Name</td>
+                <td><a href="@Url.Action("Edit", "Admin", new { filmId = f.Id })">@f.Name</a></td>
                 <td>@f.Language</td>
                 <td>@f.Location</td>
                 <td>@f.PublishTime</td>
@@ -36,5 +36,5 @@
 </table>
 
 <div class="row" style="text-align: center">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Admin", new { page = x, category = Model.CurrentCategory }))
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Admin", new { page = x, name = Model.ClassifyInfo.Name, category = Model.CurrentCategory, year = Model.ClassifyInfo.Year, area = Model.ClassifyInfo.Area, language = Model.ClassifyInfo.Language,  }))
 </div>

@@ -40,6 +40,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,8 +52,12 @@
     <Compile Include="Abstract\IFilmRepository.cs" />
     <Compile Include="Concrete\EFFilmContext.cs" />
     <Compile Include="Concrete\EFFilmRepository.cs" />
+    <Compile Include="Entities\AreaCollection.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Film.cs" />
+    <Compile Include="Entities\LanguageCollection.cs" />
+    <Compile Include="Entities\RateCollection.cs" />
+    <Compile Include="Entities\YearCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

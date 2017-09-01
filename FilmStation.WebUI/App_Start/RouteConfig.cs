@@ -52,6 +52,12 @@ namespace FilmStation.WebUI
                 new { controller = "Film", action = "List" }
                 );
 
+            //routes.MapRoute(null,
+            //    "Edit/{filmId}",
+            //    new { controller = "Edit", action = "Admin"},
+            //    new {filmId = @"\d+"}
+            //    );
+
             routes.MapRoute(null, "{controller}/{action}");
         }
     }

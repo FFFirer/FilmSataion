@@ -144,6 +144,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\customed\AdjustBodyPaddingTop.js" />
+    <Content Include="Scripts\customed\FormHandle.js" />
+    <Content Include="Scripts\customed\HideNo.js" />
     <Content Include="Scripts\customed\HidPager.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -191,6 +193,21 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\List.cshtml" />
     <Content Include="Views\Admin\FilterForm.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\CateList.cshtml" />
+    <Content Include="Views\Admin\YearList.cshtml" />
+    <Content Include="Views\Admin\AreaList.cshtml" />
+    <Content Include="Views\Admin\RateList.cshtml" />
+    <Content Include="Views\Admin\AreaEdit.cshtml" />
+    <Content Include="Views\Admin\RateEdit.cshtml" />
+    <Content Include="Views\Admin\YearEdit.cshtml" />
+    <Content Include="Views\Admin\CateEdit.cshtml" />
+    <Content Include="Views\Admin\LanguageList.cshtml" />
+    <Content Include="Views\Admin\GetYear.cshtml" />
+    <Content Include="Views\Admin\GetCate.cshtml" />
+    <Content Include="Views\Admin\GetArea.cshtml" />
+    <Content Include="Views\Admin\GetLanguage.cshtml" />
+    <Content Include="Views\Admin\LanguageEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

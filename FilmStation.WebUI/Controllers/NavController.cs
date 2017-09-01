@@ -21,7 +21,7 @@ namespace FilmStation.WebUI.Controllers
         public PartialViewResult Menu(string category = null)
         {
             ViewBag.SelectCategory = category;
-            IEnumerable<Category> Categories = repository.Categorys.Distinct().AsEnumerable();
+            IEnumerable<Category> Categories = repository.Categorys.Distinct().Where(p => p.IsShow == true).AsEnumerable();
             return PartialView(Categories);
         }
     }

@@ -11,6 +11,7 @@ namespace FilmStation.WebUI.Models
         public string Language { get; set; }
         public string Year { get; set; }
         public string Area { get; set; }
+        public string Name { get; set; }
         public string Rate { get; set; }
     }
 }

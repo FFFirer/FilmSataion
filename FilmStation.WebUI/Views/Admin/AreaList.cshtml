@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FilmStation.Domain.Entities.AreaCollection>
+
+@{
+    ViewBag.Title = "AreaList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AreaList</h2>
+
+<p>
+    @Html.ActionLink("Create New AreaCollection", "AreaCreate")
+</p>
+<input type="button" id="tog" value="显示/隐藏" />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsShow)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @if (item.IsShow == true)
+            {
+                <p>Yes</p>
+            }
+            else
+            {
+                <p>No</p>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "AreaEdit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "AreaDelete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<script src="~/Scripts/customed/HideNo.js" type="text/javascript"></script>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Data.Entity;
 
 namespace FilmStation.Domain.Entities
@@ -11,7 +12,9 @@ namespace FilmStation.Domain.Entities
     [Table("filmdetail")]
     public class Film
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+
         public string PostId { get; set; }
         public string Name { get; set; }
         public string Direct { get; set; }

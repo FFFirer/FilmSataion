@@ -11,5 +11,6 @@ namespace FilmStation.WebUI.Models
         public IEnumerable<Film> Films { get; set; }
         public PagingInfo PagingInfo { get; set; }
         public string CurrentCategory { get; set; }
+        public ClassifyInfo ClassifyInfo { get; set; }
     }
 }

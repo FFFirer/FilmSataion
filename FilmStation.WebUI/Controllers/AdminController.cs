@@ -322,7 +322,14 @@ namespace FilmStation.WebUI.Controllers
             {
                 foreach (YearCollection y in years)
                 {
-                    repository.SaveYear(y);
+                    if(y.IsShow == true)
+                    {
+                        repository.SaveYear(y);
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 return RedirectToAction("YearList");
             }
@@ -344,7 +351,14 @@ namespace FilmStation.WebUI.Controllers
             {
                 foreach(Category cate in categories)
                 {
-                    repository.SaveCategory(cate);
+                    if(cate.IsShow == true)
+                    {
+                        repository.SaveCategory(cate);
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 return RedirectToAction("CateList");
             }
@@ -366,7 +380,14 @@ namespace FilmStation.WebUI.Controllers
             {
                 foreach (AreaCollection area in areas)
                 {
-                    repository.SaveArea(area);
+                    if(area.IsShow == true)
+                    {
+                        repository.SaveArea(area);
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 return RedirectToAction("AreaList");
             }
@@ -388,7 +409,14 @@ namespace FilmStation.WebUI.Controllers
             {
                 foreach(LanguageCollection lang in languages)
                 {
-                    repository.SaveLanguage(lang);
+                    if(lang.IsShow == true)
+                    {
+                        repository.SaveLanguage(lang);
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 return RedirectToAction("LanguageList");
             }

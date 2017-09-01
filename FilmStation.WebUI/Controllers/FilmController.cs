@@ -20,7 +20,7 @@ namespace FilmStation.WebUI.Controllers
              repository = filmRepo;
         }
 
-        public ActionResult List(string category, int page = 1)
+        public ActionResult List(string category, string year, string area, string language , int page = 1)
         {
             Category CurrentCategory = new Category();
             if(category != null)
@@ -30,7 +30,7 @@ namespace FilmStation.WebUI.Controllers
             FilmViewModel viewModel = new FilmViewModel
             {
                 Films = repository.Films
-                .Where(p => category == null || p.Style.Contains(CurrentCategory.ChCateName))
+                .Where(p => (category == null || p.Style.Contains(CurrentCategory.ChCateName)) && (string.IsNullOrEmpty(year) || p.PublishTime.Contains(year)) && (string.IsNullOrEmpty(area) || p.Location.Contains(area)) && (string.IsNullOrEmpty(language) || p.Language.Contains(language)) )
                 .OrderBy(x => x.Id)
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize),
@@ -38,12 +38,20 @@ namespace FilmStation.WebUI.Controllers
                 {
                     ItemsPerPage = PageSize,
                     CurrentPage = page,
-                    TotalItems = category == null ?
-                        repository.Films.Count() :
-                        repository.Films.Where(p => p.Style.Contains(CurrentCategory.ChCateName)).Count(),
+                    TotalItems = repository.Films.Where(p => (string.IsNullOrEmpty(category) || p.Style.Contains(CurrentCategory.ChCateName)) && (string.IsNullOrEmpty(year) || p.PublishTime.Contains(year)) && (string.IsNullOrEmpty(area) || p.Location.Contains(area)) && (string.IsNullOrEmpty(language) || p.Language.Contains(language)) ).Count(),
+                },
+                ClassifyInfo = new ClassifyInfo
+                {
+                    Name = null,
+                    Category = category,
+                    Year = year,
+                    Area = area,
+                    Language = language,
+                    Rate = null,
                 },
                 CurrentCategory = CurrentCategory.EnCateName
             };
+
             return View(viewModel);
         }
 
@@ -110,6 +118,16 @@ namespace FilmStation.WebUI.Controllers
             return View(film);
         }
 
-        
+        public ActionResult ClassifiedNav(ClassifyInfo classInfo)
+        {
+            ClassifiedNavViewModel viewmodel = new ClassifiedNavViewModel
+            {
+                ClassifyInfo = classInfo,
+                Areas = repository.AreaCollections.Distinct().Where(p => p.IsShow == true).AsEnumerable(),
+                Languages = repository.LanguageCollections.Distinct().Where(p => p.IsShow == true).AsEnumerable(),
+                Years = repository.YearCollections.Distinct().Where(p => p.IsShow == true).AsEnumerable(),
+            };
+            return PartialView(viewmodel);
+        }
     }
 }

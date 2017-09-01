@@ -1,0 +1,84 @@
+﻿@model FilmStation.WebUI.Models.ClassifiedNavViewModel
+
+<div class="row">
+    <div class="col-xs-12">
+        <span>已经选择--> </span>
+        @if (!string.IsNullOrEmpty(Model.ClassifyInfo.Category))
+        { <span> 类别：@Model.ClassifyInfo.Category </span>}
+        @if (!string.IsNullOrEmpty(Model.ClassifyInfo.Area))
+        { <span> 地区：@Model.ClassifyInfo.Area </span>}
+        @if (!string.IsNullOrEmpty(Model.ClassifyInfo.Language))
+        { <span> 语言：@Model.ClassifyInfo.Language </span>}
+        @if (!string.IsNullOrEmpty(Model.ClassifyInfo.Year))
+        { <span> 年份：@Model.ClassifyInfo.Year </span>}
+    </div>
+    <div class="col-xs-12">
+        <strong>年份：</strong>
+        @if (string.IsNullOrEmpty(Model.ClassifyInfo.Year))
+        {
+        <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, Area = Model.ClassifyInfo.Area, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-primary">全部</a>
+        }
+        else
+        {
+        <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, Area = Model.ClassifyInfo.Area, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-default">全部</a>
+        }
+        @foreach (var item in Model.Years)
+        {
+            if (item.Year == Model.ClassifyInfo.Year)
+            {
+                <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = item.Year, Area = Model.ClassifyInfo.Area, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-primary">@item.Year</a>
+            }
+            else
+            {
+                <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = item.Year, Area = Model.ClassifyInfo.Area, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-default">@item.Year</a>
+            }
+        }
+    </div>
+
+    <div class="col-xs-12">
+        <strong>地区：</strong>
+        @if (string.IsNullOrEmpty(Model.ClassifyInfo.Area))
+        {
+        <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-primary">全部</a>
+        }
+        else
+        {
+        <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-default">全部</a>
+        }
+        @foreach (var item in Model.Areas)
+        {
+            if (item.Area == Model.ClassifyInfo.Area)
+            {
+                <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, Area = item.Area, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-primary">@item.Area</a>
+            }
+            else
+            {
+                <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, Area = item.Area, language = Model.ClassifyInfo.Language, page = 1 }) class="btn btn-default">@item.Area</a>
+            }
+        }
+    </div>
+
+    <div class="col-xs-12">
+        <strong>语言：</strong>
+        @if (string.IsNullOrEmpty(Model.ClassifyInfo.Language))
+        {
+        <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, area = Model.ClassifyInfo.Area, page = 1 }) class="btn btn-primary">全部</a>
+        }
+        else
+        {
+        <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, area = Model.ClassifyInfo.Area, page = 1 }) class="btn btn-default">全部</a>
+        }
+        @foreach (var item in Model.Languages)
+        {
+            
+            if (item.Language == Model.ClassifyInfo.Language)
+            {
+                <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, Area = Model.ClassifyInfo.Area, language = item.Language, page = 1 }) class="btn btn-primary">@item.Language</a>
+            }
+            else
+            {
+                <a href=@Url.Action("List", "Film", new { category = Model.ClassifyInfo.Category, year = Model.ClassifyInfo.Year, Area = Model.ClassifyInfo.Area, language = item.Language, page = 1 }) class="btn btn-default">@item.Language</a>
+            }
+        }
+    </div>
+</div>

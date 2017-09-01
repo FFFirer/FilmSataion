@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Models\ClassifiedNavViewModel.cs" />
     <Compile Include="Models\ClassifyFilmViewModel.cs" />
     <Compile Include="Models\ClassifyInfo.cs" />
     <Compile Include="Models\ClassifyNav.cs" />
@@ -208,6 +209,7 @@
     <Content Include="Views\Admin\GetArea.cshtml" />
     <Content Include="Views\Admin\GetLanguage.cshtml" />
     <Content Include="Views\Admin\LanguageEdit.cshtml" />
+    <Content Include="Views\Film\ClassifiedNav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

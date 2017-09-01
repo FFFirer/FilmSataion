@@ -4,6 +4,8 @@
     ViewBag.Title = "电影";
 }
 
+@{ Html.RenderAction("ClassifiedNav", "Film", Model.ClassifyInfo);}
+<hr />
 <div class="row">
     @foreach (var item in Model.Films)
     {
